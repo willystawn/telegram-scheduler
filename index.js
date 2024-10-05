@@ -1,6 +1,9 @@
 const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
+const express = require("express");
 require("dotenv").config();
+
+const app = express();
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = "@airdropjasun";
@@ -61,3 +64,12 @@ const scheduleMessages = () => {
 };
 
 scheduleMessages();
+
+app.get("/", (req, res) => {
+  res.send("Bot is running");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
