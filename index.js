@@ -1,7 +1,8 @@
 const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
+require("dotenv").config();
 
-const token = "7764491592:AAEdOn7hoN4v0UjisjaInKFrae6NBC3dErw";
+const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = "@airdropjasun";
 
 const bot = new TelegramBot(token, { polling: true });
